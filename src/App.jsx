@@ -1,16 +1,16 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './context/AuthProvider.jsx';
-import RequireAuth from './components/RequireAuth.jsx';
-import AppShell from './layouts/AppShell.jsx';
-import Clients from './pages/Clients.jsx';
-import Dashboard from './pages/Dashboard.jsx';
-import DocumentEditor from './pages/DocumentEditor.jsx';
-import DocumentList from './pages/DocumentList.jsx';
-import Login from './pages/Login.jsx';
-import NewDocument from './pages/NewDocument.jsx';
-import SettingsPage from './pages/Settings.jsx';
-import TemplateGallery from './pages/TemplateGallery.jsx';
-import SystemStatus from './pages/SystemStatus.jsx';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider.jsx";
+import RequireAuth from "./components/RequireAuth.jsx";
+import AppShell from "./layouts/AppShell.jsx";
+import Clients from "./pages/Clients.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import DocumentEditor from "./pages/DocumentEditor.jsx";
+import DocumentList from "./pages/DocumentList.jsx";
+import Login from "./pages/Login.jsx";
+import NewDocument from "./pages/NewDocument.jsx";
+import SettingsPage from "./pages/Settings.jsx";
+import TemplateGallery from "./pages/TemplateGallery.jsx";
+import SystemStatus from "./pages/SystemStatus.jsx";
 
 export default function App() {
   return (
@@ -38,3 +38,4 @@ export default function App() {
     </BrowserRouter>
   );
 }
+// page updated
