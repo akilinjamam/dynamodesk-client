@@ -929,3 +929,53 @@ tr.busy { opacity: .55; }
 .quick-tile span { font-size: 12px; color: var(--ink-faint); }
 
 .client-picker { max-width: 320px; margin-bottom: 14px; }
+
+/* --- Cold-start notice -------------------------------------------------- */
+/* The API sleeps on the free plan; these say so rather than looking broken. */
+
+.alert.info {
+  background: #eef6f8;
+  border: 1px solid #cfe3e9;
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.waking-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 9px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.waking-spinner {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0.85;
+  animation: waking-spin 0.7s linear infinite;
+}
+
+@keyframes waking-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waking-spinner { animation-duration: 2.4s; }
+}
+
+.page-state .btn { margin-top: 14px; }

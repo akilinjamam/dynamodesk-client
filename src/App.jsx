@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthProvider.jsx";
 import RequireAuth from "./components/RequireAuth.jsx";
+import WakingNotice from "./components/WakingNotice.jsx";
 import AppShell from "./layouts/AppShell.jsx";
 import Clients from "./pages/Clients.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <WakingNotice />
         <Routes>
           <Route path="/login" element={<Login />} />
 

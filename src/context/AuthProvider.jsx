@@ -36,8 +36,12 @@ export function AuthProvider({ children }) {
         setUser(me);
         setStatus('signed-in');
       })
-      .catch(() => {
-        if (!cancelled) signOutLocally();
+      .catch((error) => {
+        if (cancelled) return;
+        // A sleeping server is not a dead session — throwing the token away
+        // here would sign the user out every time Render spins down.
+        if (error.isOffline) setStatus('unreachable');
+        else signOutLocally();
       });
 
     return () => {
@@ -62,9 +66,21 @@ export function AuthProvider({ children }) {
     signOutLocally();
   }, [signOutLocally]);
 
+  /** Re-run the boot check after the server was unreachable. */
+  const retryConnection = useCallback(() => {
+    if (getToken()) setStatus('checking');
+  }, []);
+
   const value = useMemo(
-    () => ({ user, status, isSignedIn: status === 'signed-in', signIn, signOut }),
-    [user, status, signIn, signOut],
+    () => ({
+      user,
+      status,
+      isSignedIn: status === 'signed-in',
+      signIn,
+      signOut,
+      retryConnection,
+    }),
+    [user, status, signIn, signOut, retryConnection],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

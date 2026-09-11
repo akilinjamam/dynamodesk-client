@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider.jsx';
+import { useWaking } from '../hooks/useWaking.js';
 import { Button, Field } from '../components/ui/Field.jsx';
 
 export default function Login() {
   const { signIn, status } = useAuth();
+  const waking = useWaking();
   const navigate = useNavigate();
   const location = useLocation();
   const [formError, setFormError] = useState(null);
@@ -36,6 +38,13 @@ export default function Login() {
         </h1>
         <p className="tagline">Sign in to your document studio.</p>
 
+        {waking && (
+          <div className="alert info" role="status">
+            <span className="waking-spinner" aria-hidden="true" />
+            Waking the server — the first sign-in after a quiet spell can take a minute.
+          </div>
+        )}
+
         {formError && <div className="alert error">{formError}</div>}
 
         <Field label="Email" error={formState.errors.email?.message}>
@@ -56,7 +65,11 @@ export default function Login() {
         </Field>
 
         <Button type="submit" disabled={formState.isSubmitting}>
-          {formState.isSubmitting ? 'Signing in…' : 'Sign in'}
+          {formState.isSubmitting && waking
+            ? 'Waking the server…'
+            : formState.isSubmitting
+              ? 'Signing in…'
+              : 'Sign in'}
         </Button>
       </form>
     </div>
