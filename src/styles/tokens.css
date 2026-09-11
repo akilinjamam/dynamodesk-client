@@ -1,0 +1,23 @@
+/* Same palette as the ByteDynamo invoice, so app and documents read as one family. */
+:root {
+  --ink:        #151d26;
+  --ink-soft:   #4a5866;
+  --ink-faint:  #74838f;
+  --paper:      #ffffff;
+  --ground:     #e9edf1;
+  --panel:      #f4f7f9;
+  --rule:       #d2dae1;
+  --rule-soft:  #e3e9ee;
+  --accent:     #0d5c73;
+  --accent-ink: #0a4657;
+  --brass:      #8a6420;
+  --brass-bg:   #f6efe0;
+  --ok:         #1c7a4f;
+  --bad:        #a63232;
+  --shadow:     0 1px 2px rgba(21, 29, 38, .06), 0 12px 34px rgba(21, 29, 38, .09);
+  --radius:     6px;
+
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+}
