@@ -13,6 +13,7 @@ const DOC_TYPES = [
   ["notice", "Notice"],
   ["worklog", "Work log"],
   ["receipt", "Receipt"],
+  ["renewal", "Service renewal"],
 ];
 
 /** Only the editable sections — logo is handled by its own uploader. */

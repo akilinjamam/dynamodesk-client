@@ -11,6 +11,7 @@ const TYPE_LABELS = {
   notice: "Notices",
   worklog: "Work logs",
   receipt: "Receipts",
+  renewal: "Renewals",
 };
 
 const formatMoney = (value, locale) =>
